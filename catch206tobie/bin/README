@@ -1,0 +1,4 @@
+modify bin file:sdfs_lsnr.py
+log address:
+ats remap address:f_url
+run in bin:python -u sdfs_lsnr.py 

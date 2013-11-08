@@ -1,0 +1,27 @@
+
+Nov-08-13 15:11:46:starlsn:sdfs:/home/dfs/trafficserver-3.2.0/var/log/trafficserver/squid.log
+decode_url = http://127.0.0.1:8080/tobie-test/baby.jpg?imageView&thumbnail=73x73
+
+then range = None
+
+Nov-08-13 15:11:46:getfile:tobie:1759:3.006ms:tobie-test/baby.jpg?imageView&thumbnail=73x73
+
+decode_url = http://127.0.0.1:8080/tobie-test/baby.jpg?imageView&thumbnail=473x473
+
+then range = None
+
+Nov-08-13 15:11:46:getfile:tobie:28906:1.3292ms:tobie-test/baby.jpg?imageView&thumbnail=473x473
+
+Nov-08-13 15:15:38:starlsn:sdfs:/home/dfs/trafficserver-3.2.0/var/log/trafficserver/squid.log
+decode_url = http://127.0.0.1:8080/tobie-test/baby.jpg?imageView&thumbnail=473x473
+
+then range = None
+
+Nov-08-13 15:15:38:getfile:tobie:28906:3.099ms:tobie-test/baby.jpg?imageView&thumbnail=473x473
+
+decode_url = http://127.0.0.1:8080/tobie-test/baby.jpg?imageView&thumbnail=773x773
+
+then range = None
+
+Nov-08-13 15:17:31:getfile:tobie:42635:185.3309ms:tobie-test/baby.jpg?imageView&thumbnail=773x773
+

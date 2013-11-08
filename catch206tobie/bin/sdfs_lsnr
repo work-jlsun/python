@@ -1,0 +1,46 @@
+#!/bin/bash
+D_TAG=sdfs_lsnr
+BIN_PATH=`pwd`
+lsn_log=/home/dfs/trafficserver-3.2.0/var/log/trafficserver/squid.log
+
+OPT="--respawn --chdir $BIN_PATH"
+RUN="python -u $BIN_PATH/sdfs_lsnr.py"
+
+do_start()
+{
+        daemon $OPT --stdout=$BIN_PATH/sdfs_lsnr.log --stderr=$BIN_PATH/sdfs_lsnr.log --name=sdfs_lsnr -- $RUN
+}
+
+do_stop()
+{
+    kill -9 `ps aux | grep python | grep sdfs_lsnr.py | awk '{print $2}'` > /dev/null 2>&1
+    kill -9 `ps aux | grep -v grep | grep "tail -F $lsn_log" | awk '{print $2}'` > /dev/null 2>&1
+}
+
+case "$1" in
+    start)
+        echo -n "Starting $D_TAG : "
+        do_stop
+        do_start
+        echo 'Done.'
+        ;;
+    stop)
+        echo -n "Stopping $D_TAG : "
+        do_stop
+        echo 'Done.'
+        ;;
+    restart)
+        echo -n "Restarting $D_TAG : "
+        do_stop
+        sleep 1
+        do_start
+        echo 'Done.'
+        ;;
+    show)
+        ps aux | grep python | grep nss
+        ;;
+    *)
+        echo "Usage : ./sdfs_lsnr {start|stop|restart} " >&2
+        exit 3
+        ;;
+esac
